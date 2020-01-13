@@ -1,6 +1,6 @@
 pipeline {
 	agent {
-		doccker 'maven:3.6-jdk-slim'
+		docker { image 'maven:3.6-jdk-slim' }
 	}
 
 	options {
