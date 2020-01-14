@@ -50,6 +50,8 @@ pipeline {
 		stage('Build Docker Image') {
 			steps {
 				sh '''
+				    mkdir -p ./target
+				    cp -fp /var/lib/jenkins/workspace/Sample/spring-petclinic@2/target/*.jar ./target
 				    docker build -t petclinic:latest -f docker/Dockerfile .
 				'''
 			}
