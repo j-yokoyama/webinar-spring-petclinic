@@ -69,7 +69,7 @@ pipeline {
 		
 		stage('Deploy Webb App') {
             steps{
-                azureWebAppPublish appName: 'petclinic', azureCredentialsId: 'az-service-principal', dockerImageName: 'petclinic', dockerImageTag: 'latest', dockerRegistryEndpoint: [ url: 'https://webinarsample.azurecr.io', credentialsId: 'acr_webiner_sample' ], filePath: '', publishType: 'file', resourceGroup: 'Webinar', slotName: '', sourceDirectory: '', targetDirectory: ''
+                azureWebAppPublish appName: 'petclinic', azureCredentialsId: 'az-service-principal', dockerImageName: 'petclinic', dockerImageTag: 'latest', dockerRegistryEndpoint: [ url: 'https://webinarsample.azurecr.io', credentialsId: 'acr_webiner_sample' ], publishType: 'docker', resourceGroup: 'Webinar'
             }
 		}
 	}
