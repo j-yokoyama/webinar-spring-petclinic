@@ -61,16 +61,16 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry( 'https://webinarsample.azurecr.io', 'acr_webiner_sample' ) {
-                        docker.image('petclinic:latest').push('latest')
+                        docker.image('petclinic').push('latest')
                     }
                 }
             }
 		}
 		
-		stage('Deploy Webb App') {
-            steps{
-                azureWebAppPublish appName: 'petclinic', azureCredentialsId: 'az-service-principal', dockerImageName: 'petclinic', dockerImageTag: 'latest', dockerRegistryEndpoint: [ url: 'https://webinarsample.azurecr.io', credentialsId: 'acr_webiner_sample' ], publishType: 'docker', resourceGroup: 'Webinar'
-            }
-		}
+		// stage('Deploy Webb App') {
+        //     steps{
+        //         azureWebAppPublish appName: 'petclinic', azureCredentialsId: 'az-service-principal', dockerImageName: 'petclinic', dockerImageTag: 'latest', dockerRegistryEndpoint: [ url: 'https://webinarsample.azurecr.io', credentialsId: 'acr_webiner_sample' ], publishType: 'docker', resourceGroup: 'Webinar'
+        //     }
+		// }
 	}
 }
