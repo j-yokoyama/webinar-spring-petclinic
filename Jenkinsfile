@@ -44,8 +44,8 @@ pipeline {
             }
 			steps {
 				sh 'mvn ${mvn_opts} package -Dmaven.test.skip=true'
+				archiveArtifacts 'target/*.jar'
 			}
-			archiveArtifacts 'target/*.jar'
 		}
 
 		stage('Build Docker Image') {
